@@ -28,7 +28,6 @@ exports[`<Header /> renders correctly 1`] = `
               <a
                 className=""
                 data-test-id="headerlogo"
-                href="/"
                 target="_self"
                 title="République française"
               >
@@ -67,7 +66,6 @@ exports[`<Header /> renders correctly 1`] = `
           >
             <a
               className="fr-header__service-title"
-              href="/"
               target="_self"
               title="Nom du service"
             >
@@ -85,44 +83,39 @@ exports[`<Header /> renders correctly 1`] = `
           data-testid="tool"
         >
           <div
+            className="fr-header__tools-links"
             data-testid="toolitemgroup"
           >
-            <div
-              className="fr-header__tools-links"
+            <ul
+              className="fr-links-group"
             >
-              <ul
-                className="fr-links-group"
+              <li
+                data-testid="toolitem"
               >
-                <li
-                  data-testid="toolitem"
+                <a
+                  className="ds-fr--flex fr-link"
+                  target="_self"
                 >
-                  <a
-                    className="ds-fr--flex fr-link"
-                    href="/path"
-                    target="_self"
-                  >
-                    <span
-                      className="ri-1x icon-left fr-fi-lock-line ds-fr--v-top"
-                    />
-                    Se connecter
-                  </a>
-                </li>
-                <li
-                  data-test-id="toolitem"
+                  <span
+                    className="ri-1x icon-left fr-fi-lock-line ds-fr--v-top"
+                  />
+                  Se connecter
+                </a>
+              </li>
+              <li
+                data-test-id="toolitem"
+              >
+                <a
+                  className="ds-fr--flex fr-link"
+                  target="_self"
                 >
-                  <a
-                    className="ds-fr--flex fr-link"
-                    href="/path"
-                    target="_self"
-                  >
-                    <span
-                      className="ri-1x icon-left fr-fi-add-circle-line ds-fr--v-top"
-                    />
-                    Créer un espace
-                  </a>
-                </li>
-              </ul>
-            </div>
+                  <span
+                    className="ri-1x icon-left fr-fi-add-circle-line ds-fr--v-top"
+                  />
+                  Créer un espace
+                </a>
+              </li>
+            </ul>
           </div>
           <div
             className="fr-header__search fr-modal"
@@ -175,7 +168,6 @@ exports[`<Header /> renders correctly 1`] = `
           >
             <a
               className="fr-nav__link"
-              href="/"
               target="_self"
             >
               Home
@@ -213,7 +205,6 @@ exports[`<Header /> renders correctly 1`] = `
                 >
                   <a
                     className="fr-nav__link"
-                    href="/path-to-resources-1"
                     target="_self"
                   >
                     Ressource #1
@@ -224,7 +215,6 @@ exports[`<Header /> renders correctly 1`] = `
                 >
                   <a
                     className="fr-nav__link"
-                    href="/path-to-resources-2"
                     target="_self"
                   >
                     Ressource #2
@@ -235,7 +225,6 @@ exports[`<Header /> renders correctly 1`] = `
                 >
                   <a
                     className="fr-nav__link"
-                    href="/path-to-resources-3"
                     target="_self"
                   >
                     Ressource #3

@@ -6,9 +6,9 @@ import dataAttributes from '../../../utils/data-attributes';
 import typeValidation from '../../../utils/type-validation';
 
 const FooterPartnersLogo = ({
-  href, imageSrc, imageAlt, className, asLink, ...remainingProps
+  href, to, imageSrc, imageAlt, className, ...remainingProps
 }) => {
-  if (!href && !asLink) {
+  if (!href && !to) {
     return (
       <img
         className={classNames('fr-footer__logo', className)}
@@ -20,9 +20,9 @@ const FooterPartnersLogo = ({
   }
   return (
     <Link
-      as={asLink}
       className={classNames('footer__partners-link', className)}
       href={href}
+      to={to}
       {...dataAttributes(remainingProps)}
     >
       <img
@@ -36,16 +36,17 @@ const FooterPartnersLogo = ({
 
 FooterPartnersLogo.defaultProps = {
   __TYPE: 'FooterPartnersLogo',
-  href: '',
+  href: undefined,
+  to: undefined,
   imageSrc: '',
   className: '',
-  asLink: null,
 };
 
 FooterPartnersLogo.propTypes = {
   // eslint-disable-next-line react/no-unused-prop-types
   __TYPE: typeValidation('FooterPartnersLogo'),
   href: PropTypes.string,
+  to: PropTypes.string,
   imageSrc: PropTypes.string,
   imageAlt: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([
@@ -53,7 +54,6 @@ FooterPartnersLogo.propTypes = {
     PropTypes.object,
     PropTypes.array,
   ]),
-  asLink: PropTypes.element,
 };
 
 export default FooterPartnersLogo;

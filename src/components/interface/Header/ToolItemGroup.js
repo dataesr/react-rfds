@@ -16,16 +16,17 @@ const ToolItemGroup = ({ children, className, ...remainingProps }) => {
   }, [shortcutClassName, setMenuLinkElement, menuLinkElement]);
 
   return (
-    <div
-      {...dataAttributes(remainingProps)}
-    >
+    <>
       {isMobile && menuLinkElement && createPortal(children, menuLinkElement)}
-      <div className={classNames(className, 'fr-header__tools-links')}>
+      <div
+        className={classNames(className, 'fr-header__tools-links')}
+        {...dataAttributes(remainingProps)}
+      >
         <ul className="fr-links-group">
           {children}
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 ToolItemGroup.defaultProps = {

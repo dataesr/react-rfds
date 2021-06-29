@@ -58,7 +58,7 @@ Row.defaultProps = {
   justifyContent: null,
   scheme: '',
   children: null,
-  spacing: null,
+  spacing: '',
 };
 
 export default Row;

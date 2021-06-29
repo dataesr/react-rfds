@@ -21,6 +21,7 @@ exports[`<Card /> renders Card properly 1`] = `
       <a
         class="fr-card__link"
         href="/"
+        target="_self"
       >
         Qu’est-ce que le Pass Culture et comment l’obtenir ?
       </a>

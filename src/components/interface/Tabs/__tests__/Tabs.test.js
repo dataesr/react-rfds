@@ -2,7 +2,12 @@ import renderer from 'react-test-renderer';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { Tabs, Tab } from '../index';
+
+jest.mock('uuid', () => ({
+  v4: jest.fn(),
+}));
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -14,6 +19,7 @@ describe('<Tabs />', () => {
   let wrapper;
 
   beforeEach(() => {
+    uuidv4.mockImplementation(() => 'xxxxxxx');
     wrapper = shallow(
       <Tabs
         className={initProps.className}

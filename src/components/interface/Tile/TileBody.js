@@ -13,10 +13,10 @@ const TileBody = ({
   title,
   description,
   titleAs,
-  linkHref,
+  href,
+  to,
   linkTitle,
   linkTarget,
-  asLink,
   ...remainingProps
 }) => {
   const HtmlTag = `${titleAs}`;
@@ -27,11 +27,11 @@ const TileBody = ({
     >
       <HtmlTag className="fr-tile__title">
         <Link
-          as={asLink}
           className="fr-tile__link"
           title={linkTitle}
           target={linkTarget || undefined}
-          href={linkHref}
+          href={href}
+          to={to}
         >
           {title}
         </Link>
@@ -47,8 +47,8 @@ TileBody.defaultProps = {
   linkTitle: '',
   linkTarget: '',
   className: '',
-  linkHref: '',
-  asLink: null,
+  href: undefined,
+  to: undefined,
 };
 
 TileBody.propTypes = {
@@ -60,13 +60,13 @@ TileBody.propTypes = {
   description: PropTypes.string,
   linkTarget: PropTypes.string,
   linkTitle: PropTypes.string,
-  linkHref: PropTypes.string,
+  href: PropTypes.string,
+  to: PropTypes.string,
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
     PropTypes.array,
   ]),
-  asLink: PropTypes.element,
 };
 
 export default TileBody;

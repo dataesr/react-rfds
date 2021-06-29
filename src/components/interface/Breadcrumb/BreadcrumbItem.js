@@ -6,7 +6,7 @@ import Link from '../Link/index';
 import typeValidation from '../../../utils/type-validation';
 
 const BreadcrumbItem = ({
-  className, children, href, asLink, ...remainingProps
+  className, children, href, to, ...remainingProps
 }) => {
   const _className = classNames(
     'fr-breadcrumb__item', { 'fr-breadcrumb__item--current': !href }, className,
@@ -18,9 +18,9 @@ const BreadcrumbItem = ({
       {...dataAttributes(remainingProps)}
     >
       <Link
-        current={!href && !asLink}
+        current={!href && !to}
         className="fr-breadcrumb__link"
-        as={asLink}
+        to={to}
         href={href}
       >
         {children}
@@ -32,8 +32,8 @@ const BreadcrumbItem = ({
 BreadcrumbItem.defaultProps = {
   __TYPE: 'BreadcrumbItem',
   className: '',
-  href: '',
-  asLink: null,
+  href: undefined,
+  to: undefined,
 };
 
 BreadcrumbItem.propTypes = {
@@ -46,7 +46,7 @@ BreadcrumbItem.propTypes = {
     PropTypes.array,
   ]),
   href: PropTypes.string,
-  asLink: PropTypes.element,
+  to: PropTypes.string,
 };
 
 export default BreadcrumbItem;

@@ -2,11 +2,11 @@ import React, { Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 
 import { v4 as uuidv4 } from 'uuid';
-
+import Link from '../Link/index';
 import dataAttributes from '../../../utils/data-attributes';
 
 const MegaNavSubItem = ({
-  children, title, link, ...remainingProps
+  children, title, href, to, ...remainingProps
 }) => {
   const childs = Children.toArray(children).map((child) => cloneElement(child, { className: 'fr-nav__link' }));
   return (
@@ -15,7 +15,7 @@ const MegaNavSubItem = ({
       {...dataAttributes(remainingProps)}
     >
       <h5 className="fr-mega-menu__category">
-        <a className="fr-nav__link" href={link} target="_self">{title}</a>
+        <Link className="fr-nav__link" href={href} to={to} target="_self">{title}</Link>
       </h5>
       <ul className="fr-mega-menu__list">
         {childs.map((child) => <li key={uuidv4()}>{child}</li>)}
@@ -26,12 +26,14 @@ const MegaNavSubItem = ({
 
 MegaNavSubItem.defaultProps = {
   title: '',
-  link: '',
+  href: undefined,
+  to: undefined,
 };
 
 MegaNavSubItem.propTypes = {
   title: PropTypes.string,
-  link: PropTypes.string,
+  href: PropTypes.string,
+  to: PropTypes.string,
   children: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.node,

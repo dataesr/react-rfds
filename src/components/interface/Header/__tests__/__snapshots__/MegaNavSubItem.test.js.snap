@@ -9,7 +9,6 @@ exports[`<MegaNavSubItem /> renders correctly 1`] = `
   >
     <a
       className="fr-nav__link"
-      href="link"
       target="_self"
     >
       title

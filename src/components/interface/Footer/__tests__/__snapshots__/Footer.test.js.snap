@@ -340,7 +340,6 @@ exports[`<Footer /> should render Footer properly 1`] = `
         <a
           class=""
           data-testid="footerlogo"
-          href="/"
           target="_self"
           title="Ministère de l'enseignement supérieur de la rechercher et de l'innovation"
         >

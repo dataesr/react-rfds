@@ -34,33 +34,22 @@ Le lien contextuel se trouve au sein d’un texte et reprend les caractéristiqu
 
 ```jsx
 import { BrowserRouter as Router, Route, Link as RouterLink } from 'react-router-dom';
-
+import { RouterContextProvider} from '../../../hooks/useRouterContext';
+// Wrap the entire app with RouterContextProvider
+<RouterContextProvider Router={RouterLink}>
 <Router>
     <Route
         path="/"
         component={(props) => (
-            <Link as={<RouterLink to="/my-page">lien contextuel</RouterLink>} />
+            <>
+              <Link href="https://dataesr.fr">external</Link>
+               //
+              <Link to="/">internal</Link>
+            </>
         )}
     />
 </Router>
-```
-
-#### Usage avec react-router-dom
-
-```jsx
-import { BrowserRouter as Router, Route, Link as RouterLink } from 'react-router-dom';
-
-<Router>
-    <Route
-        path="/"
-        component={(props) => (
-            <Link icon="ri-search-line"
-                  title="titre lien interne"
-                  as={<RouterLink to="/my-page">lien contextuel avec icône</RouterLink>}
-            />
-        )}
-    />
-</Router>
+</RouterContextProvider>
 ```
 
 ### Lien externe

@@ -1,30 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Link from '../Link/index';
 import dataAttributes from '../../../utils/data-attributes';
 import typeValidation from '../../../utils/type-validation';
 
 const CardTitle = ({
-  href, children, as, anchorAs, className, ...remainingProps
+  href, to, children, as, className, ...remainingProps
 }) => {
   const Tag = `${as}`;
-  const AnchorTag = `${anchorAs}`;
   return (
     <Tag
       className={classNames('fr-card__title', className)}
       {...dataAttributes(remainingProps)}
     >
-      <AnchorTag href={href} className="fr-card__link">{children}</AnchorTag>
+      <Link href={href} to={to} className="fr-card__link">{children}</Link>
     </Tag>
   );
 };
 
 CardTitle.defaultProps = {
   __TYPE: 'CardTitle',
-  anchorAs: 'a',
   as: 'p',
   className: '',
-  href: '',
+  href: undefined,
+  to: undefined,
 };
 CardTitle.propTypes = {
   /**
@@ -36,8 +36,8 @@ CardTitle.propTypes = {
    */
   // eslint-disable-next-line react/no-unused-prop-types
   __TYPE: typeValidation('CardTitle'),
-  anchorAs: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+  to: PropTypes.string,
+  children: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,

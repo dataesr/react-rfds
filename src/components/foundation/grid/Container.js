@@ -10,15 +10,16 @@ import '@gouvfr/dsfr/dist/css/utilities.min.css';
  * @visibleName Container
  */
 const Container = ({
-  fluid, children, scheme, className, role, spacing,
+  fluid, children, scheme, className, role, as, spacing,
 }) => {
+  const Tag = as ? `${as}` : 'div';
   const { margin, padding } = getSpace(spacing);
   const _className = classNames(margin, padding, {
     'fr-container': !fluid,
     'fr-container-fluid': fluid,
     [`fr-scheme-${scheme}`]: scheme,
   }, className);
-  return <div role={role || undefined} className={_className}>{children}</div>;
+  return <Tag role={role || undefined} className={_className}>{children}</Tag>;
 };
 
 Container.defaultProps = {
@@ -26,8 +27,9 @@ Container.defaultProps = {
   className: '',
   scheme: '',
   role: '',
+  as: 'div',
   children: null,
-  spacing: null,
+  spacing: '',
 };
 
 Container.propTypes = {
@@ -45,6 +47,7 @@ Container.propTypes = {
   fluid: PropTypes.bool,
   spacing: PropTypes.string,
   role: PropTypes.string,
+  as: PropTypes.oneOf(['div', 'section']),
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,

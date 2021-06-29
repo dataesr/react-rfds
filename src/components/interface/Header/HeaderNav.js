@@ -8,7 +8,7 @@ import typeValidation from '../../../utils/type-validation';
 import HeaderContext from './headerContext';
 
 const HeaderNav = ({
-  className, children, closeButtonLabel, path, ...remainingProps
+  className, children, closeButtonLabel, ...remainingProps
 }) => {
   const {
     isOpenNav, onOpenNav, isMobile, shortcutClassName,
@@ -17,7 +17,7 @@ const HeaderNav = ({
     'fr-modal--opened': isOpenNav,
   });
   const childs = Children.toArray(children).map(
-    (child) => cloneElement(child, { key: uuidv4(), path: path || undefined }),
+    (child) => cloneElement(child, { key: uuidv4() }),
   );
   return (
     <div

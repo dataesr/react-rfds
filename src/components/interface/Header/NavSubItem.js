@@ -4,16 +4,16 @@ import Link from '../Link/index';
 import dataAttributes from '../../../utils/data-attributes';
 
 const NavSubItem = ({
-  title, link, current, asLink, ...remainingProps
+  title, href, to, current, ...remainingProps
 }) => (
   <li
     key={title}
     {...dataAttributes(remainingProps)}
   >
     <Link
-      as={asLink}
       className="fr-nav__link"
-      href={link}
+      href={href}
+      to={to}
       current={current}
     >
       {title}
@@ -22,16 +22,16 @@ const NavSubItem = ({
 );
 
 NavSubItem.defaultProps = {
-  link: '',
+  href: undefined,
+  to: undefined,
   current: false,
-  asLink: null,
 };
 
 NavSubItem.propTypes = {
   title: PropTypes.string.isRequired,
-  link: PropTypes.string,
+  href: PropTypes.string,
+  to: PropTypes.string,
   current: PropTypes.bool,
-  asLink: PropTypes.element,
 };
 
 export default NavSubItem;

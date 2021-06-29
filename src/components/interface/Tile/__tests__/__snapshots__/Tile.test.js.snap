@@ -14,7 +14,6 @@ exports[`<Tile /> renders correctly 1`] = `
     >
       <a
         className="fr-tile__link"
-        href="/path"
         target="linkTarget"
         title="linkTitle"
       >

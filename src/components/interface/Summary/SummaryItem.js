@@ -4,13 +4,12 @@ import Link from '../Link/index';
 import dataAttributes from '../../../utils/data-attributes';
 
 const SummaryItem = ({
-  href, target, children, className, asLink, ...remainingProps
+  href, to, target, children, className, ...remainingProps
 }) => (
   <li
     {...dataAttributes(remainingProps)}
   >
     <Link
-      as={asLink}
       isSimple
       href={href}
       target={target}
@@ -23,7 +22,8 @@ const SummaryItem = ({
 
 SummaryItem.defaultProps = {
   className: '',
-  href: '',
+  href: undefined,
+  to: undefined,
   target: '_self',
   asLink: null,
 };
@@ -31,6 +31,7 @@ SummaryItem.defaultProps = {
 SummaryItem.propTypes = {
   children: PropTypes.string.isRequired,
   href: PropTypes.string,
+  to: PropTypes.string,
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,

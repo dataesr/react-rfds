@@ -7,16 +7,16 @@ import dataAttributes from '../../../utils/data-attributes';
 import typeValidation from '../../../utils/type-validation';
 
 const Service = ({
-  title, description, className, link, asLink, ...remainingProps
+  title, description, className, href, to, ...remainingProps
 }) => (
   <div
     className={classNames(className, 'fr-header__service')}
     {...dataAttributes(remainingProps)}
   >
     <Link
-      as={asLink}
       className="fr-header__service-title"
-      href={link}
+      href={href}
+      to={to}
       title={title}
     >
       {title}
@@ -29,8 +29,8 @@ Service.defaultProps = {
   __TYPE: 'Service',
   className: '',
   description: 'Ouvrir le menu',
-  link: '/',
-  asLink: null,
+  href: undefined,
+  to: undefined,
 };
 
 Service.propTypes = {
@@ -38,13 +38,13 @@ Service.propTypes = {
   __TYPE: typeValidation('Service'),
   description: PropTypes.string,
   title: PropTypes.string.isRequired,
-  link: PropTypes.string,
+  href: PropTypes.string,
+  to: PropTypes.string,
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
     PropTypes.array,
   ]),
-  asLink: PropTypes.element,
 };
 
 export default Service;

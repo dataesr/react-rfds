@@ -6,21 +6,21 @@ import Link from '../Link/index';
 import dataAttributes from '../../../utils/data-attributes';
 
 const ToolItem = ({
-  icon, link, className, children, asLink, ...remainingProps
+  icon, href, to, className, children, ...remainingProps
 }) => (
   <li
     key={uuidv4()}
     {...dataAttributes(remainingProps)}
   >
     <Link
-      as={asLink}
       className={className}
       isSimple
       display="flex"
       icon={icon}
       iconPosition="left"
       iconSize="1x"
-      href={link}
+      href={href}
+      to={to}
     >
       {children}
     </Link>
@@ -30,8 +30,8 @@ const ToolItem = ({
 ToolItem.defaultProps = {
   className: '',
   icon: '',
-  link: '',
-  asLink: null,
+  href: undefined,
+  to: undefined,
 };
 
 ToolItem.propTypes = {
@@ -41,9 +41,9 @@ ToolItem.propTypes = {
     PropTypes.array,
   ]),
   icon: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  link: PropTypes.string,
-  asLink: PropTypes.element,
+  children: PropTypes.string.isRequired,
+  href: PropTypes.string,
+  to: PropTypes.string,
 };
 
 export default ToolItem;

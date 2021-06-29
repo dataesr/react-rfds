@@ -6,19 +6,19 @@ import dataAttributes from '../../../utils/data-attributes';
 import withProps from '../../../utils/withProps';
 
 const Tab = ({
-  className, index, activeTab, setHeight, children, ...remainingProps
+  _id, className, index, activeTab, setHeight, children, ...remainingProps
 }) => {
   const getHeight = (el) => el.getBoundingClientRect().height;
   useEffect(() => {
     if (activeTab === index) {
-      const current = document.getElementById(`fr-tabpanel-${index}`);
+      const current = document.getElementById(`fr-tabpanel-${_id}`);
       const tab = document.querySelector('.fr-tabs__list');
       setHeight(current && tab ? getHeight(current) + getHeight(tab) : 0);
     }
-  }, [index, setHeight, activeTab]);
+  }, [_id, index, setHeight, activeTab]);
   return (
     <div
-      id={`fr-tabpanel-${index}`}
+      id={`fr-tabpanel-${_id}`}
       className={classNames(`fr-tabs__panel ${activeTab === index ? 'fr-tabs__panel--selected' : ''}`, className)}
       role="tabpanel"
       tabIndex="0"
@@ -34,6 +34,7 @@ Tab.defaultProps = {
 };
 
 Tab.propTypes = {
+  _id: PropTypes.string.isRequired,
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,

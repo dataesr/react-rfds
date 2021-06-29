@@ -7,14 +7,14 @@ import useCollapse from '../../../hooks/useCollapse';
 import dataAttributes from '../../../utils/data-attributes';
 
 const SideMenuItem = ({
-  children, expandedDefault, title, className, ...remainingProps
+  children, title, current, className, ...remainingProps
 }) => {
   const itemID = uuidv4();
-  const [isExpanded, setExpanded] = useState(expandedDefault);
+  const [isExpanded, setExpanded] = useState(current);
   const { item, collapse } = useCollapse(itemID, isExpanded);
   return (
     <li
-      className={classNames('fr-sidemenu__item', className)}
+      className={classNames('fr-sidemenu__item', { 'fr-sidemenu__item--active': current }, className)}
       {...dataAttributes(remainingProps)}
     >
       <button
@@ -46,7 +46,7 @@ SideMenuItem.propTypes = {
     PropTypes.node,
   ]).isRequired,
   title: PropTypes.string.isRequired,
-  expandedDefault: PropTypes.bool,
+  current: PropTypes.bool,
   className: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
@@ -54,7 +54,7 @@ SideMenuItem.propTypes = {
   ]),
 };
 SideMenuItem.defaultProps = {
-  expandedDefault: false,
   className: '',
+  current: false,
 };
 export default SideMenuItem;

@@ -27,6 +27,7 @@ const Tabs = ({
     ...addProps,
     index,
     key: uuidv4(),
+    _id: uuidv4(),
   }));
 
   const _className = classNames('fr-tabs', className, { [`fr-scheme-${scheme}`]: scheme });

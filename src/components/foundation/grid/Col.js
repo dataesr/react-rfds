@@ -48,7 +48,7 @@ Col.defaultProps = {
   className: '',
   scheme: '',
   children: null,
-  spacing: null,
+  spacing: '',
 };
 
 export default Col;

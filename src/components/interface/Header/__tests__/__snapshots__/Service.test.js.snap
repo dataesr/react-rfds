@@ -6,7 +6,6 @@ exports[`<Service /> renders correctly 1`] = `
 >
   <a
     className="fr-header__service-title"
-    href="/"
     target="_self"
     title="title"
   >

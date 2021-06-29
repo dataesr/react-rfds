@@ -1,4 +1,6 @@
-import React, { useState, cloneElement, Children } from 'react';
+import React, {
+  useState, useEffect, cloneElement, Children,
+} from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -22,21 +24,16 @@ const Header = ({
   isOpenNav,
   isOpenSearch,
   closeButtonLabel,
+  path,
   ...remainingProps
 }) => {
   const { width } = useViewport();
   const [openSearch, setOpenSearch] = useState(isOpenSearch || false);
-  const [currentPath, setCurrentPath] = useState('');
   const [openNav, setOpenNav] = useState(isOpenNav || false);
   let isSearchBar = false;
   let isNavBar = false;
   let isNavTool = false;
   const isMobile = width < 992;
-
-  const onChangePath = (path) => {
-    setCurrentPath(path);
-    setOpenNav(false);
-  };
 
   deepForEach(children, (child) => {
     if (!child) return;
@@ -59,9 +56,10 @@ const Header = ({
     onOpenSearch: () => setOpenSearch(!openSearch),
     isOpenNav: !!openNav,
     onOpenNav: (open) => setOpenNav(open),
-    currentPath,
-    setCurrentPath: (path) => onChangePath(path),
   };
+
+  useEffect(() => { setOpenNav(false); }, [path]);
+
   return (
     <HeaderContext.Provider value={contextProps}>
       <header
@@ -107,9 +105,11 @@ Header.defaultProps = {
   isOpenNav: false,
   isOpenSearch: false,
   closeButtonLabel: 'Fermer',
+  path: undefined,
 };
 
 Header.propTypes = {
+  path: PropTypes.string,
   /**
    * Ouverture de la popin de recherche en mobile
    */
