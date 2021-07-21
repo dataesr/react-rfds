@@ -42,3 +42,11 @@ https://gouvfr.atlassian.net/servicedesk/customer/portal/1/DSFR-322
 span.error {
     color: var(--error);
 }
+
+.fr-table thead th {
+    line-height: 30px;
+}
+
+.fr-table thead th.sortable {
+    cursor: pointer;
+}

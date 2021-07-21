@@ -14,76 +14,68 @@ exports[`<Table /> renders Table properly 1`] = `
     <thead>
       <tr>
         <th
+          class=""
           scope="col"
         >
-          Titre
+          Titre 1
         </th>
         <th
+          class=""
           scope="col"
         >
-          Titre
+          Titre 2
         </th>
         <th
+          class=""
           scope="col"
         >
-          Titre
-        </th>
-        <th
-          scope="col"
-        >
-          Titre
-        </th>
-        <th
-          scope="col"
-        >
-          Titre
-        </th>
-        <th
-          scope="col"
-        >
-          Titre
+          Titre 3
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>
-          Donnée
+          Donnée 1 1
         </td>
         <td>
-          Donnée
+          Donnée 1 2
         </td>
         <td>
-          Donnée
-        </td>
-        <td>
-          Donnée
-        </td>
-        <td>
-          Donnée
-        </td>
-        <td>
-          Donnée
+          Donnée 1 3
         </td>
       </tr>
       <tr>
         <td>
-          Donnée
+          Donnée 2 1
         </td>
         <td>
-          Donnée
+          Donnée 2 2
         </td>
         <td>
-          Donnée
+          Donnée 2 3
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Donnée 3 1
         </td>
         <td>
-          Donnée
+          Donnée 3 2
         </td>
         <td>
-          Donnée
+          Donnée 3 3
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Donnée 4 1
         </td>
         <td>
-          Donnée
+          Donnée 4 2
+        </td>
+        <td>
+          Donnée 4 3
         </td>
       </tr>
     </tbody>

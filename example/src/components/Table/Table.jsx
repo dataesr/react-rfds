@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import {
-  Col, SimpleTable, Pagination,
+  Col, SimpleTable, Pagination, Row, Table,
 } from '@dataesr/react-dsfr';
 
 const data = [
@@ -85,21 +85,42 @@ const data = [
   },
 ];
 
+const columns = [
+  // eslint-disable-next-line react/prop-types
+  { name: 'level', label: 'Niveau', render: ({ level }) => `Niveau ${level}` },
+  { name: 'name_fr', label: 'Français', sortable: true },
+  { name: 'name_en', label: 'Anglais', sortable: true },
+];
+
 const TableExample = () => {
   const [page, setPage] = useState(1);
   return (
     <Col>
-      <SimpleTable
-        tableClassName="tableClassName"
-        tableID="tableID-1"
-        caption="Simple Table"
-        data={data.slice((page - 1) * 3, page * 3)}
-      />
-      <Pagination
-        currentPage={page}
-        pageCount={5}
-        onClick={setPage}
-      />
+      <Row>
+        <Col>
+          <SimpleTable
+            tableClassName="tableClassName"
+            tableID="tableID-1"
+            caption="Simple Table"
+            data={data.slice((page - 1) * 3, page * 3)}
+          />
+          <Pagination
+            currentPage={page}
+            pageCount={5}
+            onClick={setPage}
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Table
+          caption="Complexe Table"
+          rowKey="id"
+          data={data}
+          columns={columns}
+          pagination
+          perPage={3}
+        />
+      </Row>
     </Col>
   );
 };

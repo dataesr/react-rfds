@@ -5,26 +5,12 @@ import Table from './Table';
 const SimpleTable = ({ data, ...remainingProps }) => {
   const headers = Object.keys(data?.[0]);
   return (
-    <Table {...remainingProps}>
-      <thead>
-        <tr key="headers">
-          { headers.map((header) => (<th key={header} scope="col">{header}</th>)) }
-        </tr>
-      </thead>
-      <tbody>
-        {
-          data.map((row) => (
-            <tr key={row._id || row.id}>
-              {
-                Object.entries(row).map(
-                  ([key, value]) => (<td key={`${row._id || row.id}_${key}`}>{value}</td>),
-                )
-              }
-            </tr>
-          ))
-        }
-      </tbody>
-    </Table>
+    <Table
+      {...remainingProps}
+      columns={headers.map((header) => ({ name: header, label: header }))}
+      data={data}
+      rowKey="id"
+    />
   );
 };
 
